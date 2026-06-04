@@ -1,0 +1,8 @@
+{
+  "name": "Remix: Soft Boy Closet",
+  "description": "Gestor de armario y planificador de outfits con estética Soft Boy.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

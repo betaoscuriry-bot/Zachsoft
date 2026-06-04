@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-soft-bg: #fef9ef;
+  --color-soft-sec: #e8dccc;
+  --color-soft-accent: #d4b896;
+  --color-soft-primary: #a67c52;
+  --color-soft-border: #c4b5a5;
+  --color-soft-text: #4a3f35;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Glassmorphism custom components matching High Density aesthetic */
+.glass {
+  background: rgba(232, 220, 204, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(196, 181, 165, 0.3);
+}
+
+.glass-dark {
+  background: rgba(44, 37, 32, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(166, 124, 82, 0.25);
+}
+
+.btn-primary {
+  background-color: #a67c52;
+  color: white;
+  border-radius: 20px;
+  padding: 12px 24px;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(166,124,82,0.2);
+  cursor: pointer;
+  border: none;
+  transition: transform 0.2s ease;
+}
+
+.btn-primary:active {
+  transform: scale(0.95);
+}
+
+/* Card components with Soft Boy borders and shadows */
+.soft-card {
+  background: white;
+  border-radius: 24px;
+  border: 1px solid #c4b5a5;
+  box-shadow: 0 8px 30px rgba(74, 63, 53, 0.05);
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.soft-card:hover {
+  box-shadow: 0 12px 40px rgba(74,63,53,0.08);
+}
+
+/* Dark mode equivalent definitions */
+.soft-card-dark {
+  background: #251e1a;
+  border-radius: 24px;
+  border: 1px solid #4a3f35;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.soft-card-dark:hover {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Subtle scrollbar hide helper */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* Base fade transition animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-in {
+  animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Subtle pulse for Soft Boy aesthetic elements */
+@keyframes subtlePulse {
+  0%, 100% { opacity: 0.9; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.02); }
+}
+
+.subtle-pulse {
+  animation: subtlePulse 3s ease-in-out infinite;
+}
+
+/* Graceful floating animations for teddy bears */
+@keyframes floatUp {
+  0% {
+    transform: translateY(110vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: var(--bear-opacity, 0.07);
+  }
+  90% {
+    opacity: var(--bear-opacity, 0.07);
+  }
+  100% {
+    transform: translateY(-20vh) rotate(180deg);
+    opacity: 0;
+  }
+}
+
+@keyframes sway {
+  0%, 100% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(30px);
+  }
+}
+
+.floating-bear {
+  position: fixed;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  animation: floatUp var(--bear-duration, 20s) linear infinite, sway var(--bear-sway-duration, 6s) ease-in-out infinite;
+}
